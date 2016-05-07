@@ -1,0 +1,55 @@
+snippet act "FreeSwitch dialplan action tag" b
+<action application="${1:app}" data="${2:app data}"/>
+endsnippet
+
+snippet cond "FreeSwitch dialplan condition tag" b
+<condition field="${1:var name}" expression="${2:expr}">
+  ${3:content}
+</condition>
+endsnippet
+
+snippet conds "FreeSwitch dialplan single condition tag" b
+<condition field="${1:var name}" expression="${2:expr}"/>
+endsnippet
+
+snippet cont "FreeSwitch dialplan context tag" b
+<context name="${1:name}">
+  ${2:content}
+</context>
+endsnippet
+
+snippet ext "FreeSwitch dialplan extension tag" b
+<extension name="${1:extension name}">
+  ${2:content}
+</extension>
+endsnippet
+
+snippet extcon "FreeSwitch dialplan extension tag with continue parameter" b
+<extension name="${1:name}" continue="true">
+  ${2:content}
+</extension>
+endsnippet
+
+snippet menu "FreeSwitch dialplan ivr tag"
+<menu name="${1:demo-ivr}"
+  greet-long="${2:phrase:demo_ivr_main_menu}"
+  greet-short="${3:phrase:demo_ivr_main_menu_short}"
+  invalid-sound="${4:phrase:demo_ivr_main_menu_short}"
+  exit-sound="${5:phrase:demo_ivr_main_menu_short}"
+  confirm-macro="$6"
+  confirm-key="$7"
+  tts-engine="${8:flite}"
+  tts-voice="${9:rms}"
+  confirm-attempts="${10:3}"
+  timeout="${11:10000}"
+  inter-digit-timeout="${12:2000}"
+  max-failures="${13:3}"
+  max-timeouts="${14:3}"
+  digit-len="${15:1}">
+  ${16:content}
+</menu>
+endsnippet
+
+snippet entry "FreeSwitch dialplan ivr entry tag"
+<entry action="${1:menu-exec-app}" digits="${2:1}" param="${3:app data}"/>
+endsnippet
